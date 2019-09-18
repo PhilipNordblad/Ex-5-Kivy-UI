@@ -13,19 +13,25 @@
         #on_press: root.pressed()
 
     DPEAButton:
-        text: "Click Me"
+        id: count = 0
+        on_press: count.value = count+1
+        text: "Click Me" if test_button.state == "normal" else str(int(count))
         size: 100, 100
         x: root.width * 0.25
         y:root.height * 0.5
         color: 1, 0, 0, 1
-        on_press: root.pressed()
 
-  #  DPEALabel:
-   #     text:
-   #     size: 100,100
-    #    x:root.width*0.75
-    #    y:root.width*0.75
-    #    color: 1,0,0,1
+
+
+
+    #Label:
+
+        #text: 'Clicks: ' + str(int(gcount.value))
+        #size: 100,100
+        #x:root.width*0.75
+        #y:root.width*0.75
+        #color: 1,0,0,1
+
 
     ImageButton:
         id: logo_image_button

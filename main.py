@@ -12,6 +12,7 @@ from pidev.kivy.PauseScreen import PauseScreen
 from pidev.kivy import DPEAButton
 from pidev.kivy import ImageButton
 
+
 MIXPANEL_TOKEN = "x"
 MIXPANEL = MixPanel("Project Name", MIXPANEL_TOKEN)
 
@@ -42,10 +43,12 @@ class MainScreen(Screen):
     """
 
     def pressed(self):
+
         """
         Function called on button touch event for button with id: testButton
         :return: None
         """
+
 
         #PauseScreen.pause(pause_scene_name='pauseScene', transition_back_scene='main', text="Test", pause_duration=5)
 
