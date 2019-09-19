@@ -15,18 +15,26 @@
     DPEAButton:
         id: test_button
         text: "Click Me " + root.string_count
-        size: 100, 100
-        x: root.width * 0.25
+        size: 250, 100
+        x: root.width * 0.1
         y:root.height * 0.5
         color: 1, 0, 0, 1
         on_press: root.pressed()
 
 
 
+    DPEAButton:
+        id: test_button
+        text: "Click me too "
+        size: 300, 100
+        x:root.width * 0.4
+        y:root.height * 0.25
+        color: 0, 0, 1, 1
+
 
     #Label:
 
-        #text: 'Clicks: ' + str(int(count.value))
+        #text: root.condition
         #size: 100,100
         #x:root.width*0.75
         #y:root.width*0.75

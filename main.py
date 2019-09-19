@@ -42,17 +42,27 @@ class MainScreen(Screen):
     Class to handle the main screen and its associated touch events
     """
     string_count = StringProperty()
+    condition = StringProperty()
 
     def __init__(self, **kwargs):
         super(MainScreen, self).__init__(**kwargs)
         self.count = 0
 
 
+
     def pressed(self):
 
         self.count = self.count+1
         self.string_count = str(self.count)
-        print(self.string_count)
+
+
+
+    def motor_pressed(self):
+
+        return None
+
+
+
 
 
 
