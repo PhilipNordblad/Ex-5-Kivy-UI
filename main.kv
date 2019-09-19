@@ -13,20 +13,20 @@
         #on_press: root.pressed()
 
     DPEAButton:
-        id: count = 0
-        on_press: count.value = count+1
-        text: "Click Me" if test_button.state == "normal" else str(int(count))
+        id: test_button
+        text: "Click Me " + root.string_count
         size: 100, 100
         x: root.width * 0.25
         y:root.height * 0.5
         color: 1, 0, 0, 1
+        on_press: root.pressed()
 
 
 
 
     #Label:
 
-        #text: 'Clicks: ' + str(int(gcount.value))
+        #text: 'Clicks: ' + str(int(count.value))
         #size: 100,100
         #x:root.width*0.75
         #y:root.width*0.75

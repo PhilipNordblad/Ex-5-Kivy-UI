@@ -4,7 +4,7 @@ from kivy.app import App
 from kivy.core.window import Window
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.uix.label import Label
+from kivy.properties import StringProperty
 
 from pidev.MixPanel import MixPanel
 from pidev.kivy.PassCodeScreen import PassCodeScreen
@@ -41,13 +41,19 @@ class MainScreen(Screen):
     """
     Class to handle the main screen and its associated touch events
     """
+    string_count = StringProperty()
+
+    def __init__(self, **kwargs):
+        super(MainScreen, self).__init__(**kwargs)
+        self.count = 0
+
 
     def pressed(self):
 
-        """
-        Function called on button touch event for button with id: testButton
-        :return: None
-        """
+        self.count = self.count+1
+        self.string_count = str(self.count)
+        print(self.string_count)
+
 
 
         #PauseScreen.pause(pause_scene_name='pauseScene', transition_back_scene='main', text="Test", pause_duration=5)
