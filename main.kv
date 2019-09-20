@@ -3,6 +3,22 @@
     FloatLayout:
         size_hint: None, None
 
+    Slider:
+        id: slider
+        min: 0
+        max: 100
+        step: 1
+        x:root.width*0.01
+        y:root.height*0.4
+        orientation: 'horizontal'
+
+    Label:
+        text: str(slider.value)
+        size: 100,100
+        x:root.width*0.1
+        y:root.height*0.3
+        color: 1,0,0,1
+
     DPEAButton:
         id: test_button
         text: 'ON' if test_button.state == "normal" else "OFF"
@@ -41,20 +57,7 @@
         y:root.height*0.3
         color: 1,0,0,1
 
-    Slider:
-        id: slider
-        min: 0
-        max: 100
-        step: 1
-        x:root.width*0.1
-        y:root.height*0.000000001
-        orientation: 'horizontal'
 
-    Label:
-        text: str(slider.value)
-        size: 100,100
-        x:root.width*0.3
-        y:root.height*0.4
 
 
 
