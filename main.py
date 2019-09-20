@@ -5,6 +5,8 @@ from kivy.core.window import Window
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.properties import StringProperty
+from kivy.properties import ObjectProperty
+from kivy.uix.slider import Slider
 
 from pidev.MixPanel import MixPanel
 from pidev.kivy.PassCodeScreen import PassCodeScreen
@@ -42,11 +44,12 @@ class MainScreen(Screen):
     Class to handle the main screen and its associated touch events
     """
     string_count = StringProperty()
-    condition = StringProperty()
+    condition = ObjectProperty()
 
     def __init__(self, **kwargs):
         super(MainScreen, self).__init__(**kwargs)
         self.count = 0
+        self.condition = False
 
 
 
@@ -59,7 +62,8 @@ class MainScreen(Screen):
 
     def motor_pressed(self):
 
-        return None
+        self.condition = not self.condition
+
 
 
 
