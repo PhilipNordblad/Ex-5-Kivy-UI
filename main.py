@@ -21,6 +21,7 @@ MIXPANEL = MixPanel("Project Name", MIXPANEL_TOKEN)
 SCREEN_MANAGER = ScreenManager()
 MAIN_SCREEN_NAME = 'main'
 ADMIN_SCREEN_NAME = 'admin'
+FARMYARD_SCREEN_NAME = 'farmyard'
 
 
 class ProjectNameGUI(App):
@@ -58,19 +59,16 @@ class MainScreen(Screen):
         self.count = self.count+1
         self.string_count = str(self.count)
 
+    def press(self):
+
+        PauseScreen.pause(pause_scene_name='pauseScene', transition_back_scene=FARMYARD_SCREEN_NAME, text="Weeeeeee!", pause_duration=2)
+
+
 
 
     def motor_pressed(self):
 
         self.condition = not self.condition
-
-
-
-
-
-
-
-        #PauseScreen.pause(pause_scene_name='pauseScene', transition_back_scene='main', text="Test", pause_duration=5)
 
     def admin_action(self):
         """
@@ -80,6 +78,18 @@ class MainScreen(Screen):
         """
         SCREEN_MANAGER.current = 'passCode'
 
+class farmyard(Screen):
+
+    def __init__(self, **kwargs):
+        Builder.load_file('farmyard.kv')
+
+        PassCodeScreen.set_transition_back_screen(MAIN_SCREEN_NAME)
+
+        super(farmyard, self).__init__(**kwargs)
+
+
+    def go_back(self):
+            SCREEN_MANAGER.current = MAIN_SCREEN_NAME
 
 class AdminScreen(Screen):
     """
@@ -98,6 +108,7 @@ class AdminScreen(Screen):
         PassCodeScreen.set_transition_back_screen(MAIN_SCREEN_NAME)  # set screen name to transition to if "Back to Game is pressed"
 
         super(AdminScreen, self).__init__(**kwargs)
+
 
     @staticmethod
     def transition_back():
@@ -127,10 +138,12 @@ Widget additions
 """
 
 Builder.load_file('main.kv')
+
 SCREEN_MANAGER.add_widget(MainScreen(name=MAIN_SCREEN_NAME))
 SCREEN_MANAGER.add_widget(PassCodeScreen(name='passCode'))
 SCREEN_MANAGER.add_widget(PauseScreen(name='pauseScene'))
 SCREEN_MANAGER.add_widget(AdminScreen(name=ADMIN_SCREEN_NAME))
+SCREEN_MANAGER.add_widget(farmyard(name=FARMYARD_SCREEN_NAME))
 
 """
 MixPanel

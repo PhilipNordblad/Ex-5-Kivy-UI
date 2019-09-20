@@ -1,0 +1,15 @@
+<farmyard>:
+    name: 'farmyard'
+    FloatLayout:
+        size_hint: None, None
+
+    DPEAButton:
+        #Go back button
+        size: 175, 100
+        center_x: root.width * 0.75
+        center_y: root.height * 0.5
+        color: 1, 0, 0, 1
+
+        text: "Wanna go back?"
+        on_press: root.go_back()
+
