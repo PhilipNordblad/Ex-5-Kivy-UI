@@ -7,6 +7,10 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.properties import StringProperty
 from kivy.properties import ObjectProperty
 from kivy.uix.slider import Slider
+from pidev.Joystick import Joystick
+from kivy.animation import Animation
+
+
 
 from pidev.MixPanel import MixPanel
 from pidev.kivy.PassCodeScreen import PassCodeScreen
@@ -77,6 +81,24 @@ class MainScreen(Screen):
         :return: None
         """
         SCREEN_MANAGER.current = 'passCode'
+
+    def anim(self):
+
+        self.anim = Animation(x = .) + Animation(size = (80,80), duration = 2)
+        self.start(widget)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 class farmyard(Screen):
 
