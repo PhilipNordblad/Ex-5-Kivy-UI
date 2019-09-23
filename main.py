@@ -82,19 +82,11 @@ class MainScreen(Screen):
         """
         SCREEN_MANAGER.current = 'passCode'
 
-    def anim(self):
+    def animate(self):
 
-        self.anim = Animation(x = .) + Animation(size = (80,80), duration = 2)
-        self.start(widget)
+        self.anim = Animation(x = 50, y = 50) & Animation(size = (200,200))
 
-
-
-
-
-
-
-
-
+        self.anim.start(self.ids.another_logo)
 
 
 
