@@ -103,9 +103,6 @@ class MainScreen(Screen):
 
 
 
-
-
-
 class farmyard(Screen):
 
     def __init__(self, **kwargs):
@@ -122,7 +119,7 @@ class farmyard(Screen):
 
     def animate(self):
 
-        self.anim = Animation(x = .5, y = .5) & Animation(size = (200,200)) & Animation(x = -50, y = -50) & Animation(size = (100,100))
+        self.anim = Animation(x = .5, y = .5) & Animation(size = (200,200)) + Animation(x = -50, y = -50) & Animation(size = (100,100))
 
         self.anim.start(self.ids.another_logo)
 

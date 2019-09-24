@@ -14,8 +14,9 @@
         min: 0
         max: 100
         step: 1
-        x:root.width*0.01
-        y:root.height*0.4
+        size_hint: .5,.5
+        x:root.width*0.5
+        y:root.height*0.8
         orientation: 'horizontal'
 
     Label:
@@ -73,17 +74,16 @@
         on_press: root.press()
 
 
-    Label:
-        id: my_x
-        text: "X: " + str(root.x_axis)
-        color: 0,0,0,1
-        y: 50
 
     Label:
-        id: my_y
-        text: "Y: " + str(root.y_axis)
+        id: my_xy
+        text: "X: " + str(root.x_axis) + "          Y: " + str(root.y_axis)
         color: 0,0,0,1
-        y: 100
+        x: root.x_axis * 200
+        y: root.y_axis * 200
+
+
+
 
 
 
