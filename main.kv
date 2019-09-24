@@ -1,6 +1,10 @@
 <MainScreen>:
     name: 'main'
 
+
+    on_enter : root.start_Joystick_Thread()
+
+
     FloatLayout:
         size_hint: None, None
 
@@ -39,7 +43,7 @@
         color: 1, 0, 0, 1
         on_press: root.pressed()
 
-        on_press: root.motor_pressed()
+        #on_press: root.motor_pressed()
 
 
     Label:
@@ -68,13 +72,18 @@
         y: root.height * 0.2
         on_press: root.press()
 
-    ImageButton:
-        id:another_logo
-        source: "pika.jpg"
-        size: 100, 100
-        x: root.width * 0.4
-        y: root.height * 0.2
-        on_press: root.animate()
+
+    Label:
+        id: my_x
+        text: "X: " + str(root.x_axis)
+        color: 0,0,0,1
+        y: 50
+
+    Label:
+        id: my_y
+        text: "Y: " + str(root.y_axis)
+        color: 0,0,0,1
+        y: 100
 
 
 

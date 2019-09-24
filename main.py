@@ -9,7 +9,8 @@ from kivy.properties import ObjectProperty
 from kivy.uix.slider import Slider
 from pidev.Joystick import Joystick
 from kivy.animation import Animation
-
+from pygame import joystick
+from threading import Thread
 
 
 from pidev.MixPanel import MixPanel
@@ -51,6 +52,23 @@ class MainScreen(Screen):
     string_count = StringProperty()
     condition = ObjectProperty()
 
+    joystick = Joystick(0, False)
+    x_axis = ObjectProperty(0,0)
+    y_axis = ObjectProperty(0,0)
+
+    def joystick_thread(self):
+
+        while 1:
+            self.joystick.refresh()
+            self.x_axis = self.joystick.get_axis('x')
+            self.y_axis = self.joystick.get_axis('y')
+
+
+
+    def start_Joystick_Thread(self):
+        Thread(target=self.joystick_thread).start()
+
+
     def __init__(self, **kwargs):
         super(MainScreen, self).__init__(**kwargs)
         self.count = 0
@@ -82,11 +100,7 @@ class MainScreen(Screen):
         """
         SCREEN_MANAGER.current = 'passCode'
 
-    def animate(self):
 
-        self.anim = Animation(x = 50, y = 50) & Animation(size = (200,200))
-
-        self.anim.start(self.ids.another_logo)
 
 
 
@@ -104,6 +118,13 @@ class farmyard(Screen):
 
     def go_back(self):
             SCREEN_MANAGER.current = MAIN_SCREEN_NAME
+
+
+    def animate(self):
+
+        self.anim = Animation(x = .5, y = .5) & Animation(size = (200,200)) & Animation(x = -50, y = -50) & Animation(size = (100,100))
+
+        self.anim.start(self.ids.another_logo)
 
 class AdminScreen(Screen):
     """
