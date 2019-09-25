@@ -1,5 +1,6 @@
 import os
 
+import pygame
 from kivy.app import App
 from kivy.core.window import Window
 from kivy.lang import Builder
@@ -45,6 +46,8 @@ class ProjectNameGUI(App):
 Window.clearcolor = (1, 1, 1, 1)  # White
 
 
+
+
 class MainScreen(Screen):
     """
     Class to handle the main screen and its associated touch events
@@ -56,12 +59,15 @@ class MainScreen(Screen):
     x_axis = ObjectProperty(0,0)
     y_axis = ObjectProperty(0,0)
 
+
+
     def joystick_thread(self):
 
         while 1:
             self.joystick.refresh()
             self.x_axis = self.joystick.get_axis('x')
             self.y_axis = self.joystick.get_axis('y')
+          #  self.ids.dog.text = str(self.joystick.get_button_state(0))
 
 
 
