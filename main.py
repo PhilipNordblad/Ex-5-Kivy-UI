@@ -55,7 +55,7 @@ class MainScreen(Screen):
     string_count = StringProperty()
     condition = ObjectProperty()
 
-    joystick = Joystick(0, False)
+    joystick = Joystick(0, True)
     x_axis = ObjectProperty(0,0)
     y_axis = ObjectProperty(0,0)
 
@@ -67,7 +67,7 @@ class MainScreen(Screen):
             self.joystick.refresh()
             self.x_axis = self.joystick.get_axis('x')
             self.y_axis = self.joystick.get_axis('y')
-          #  self.ids.dog.text = str(self.joystick.get_button_state(0))
+            self.ids.dog.text = str(self.joystick.get_button_state(0))
 
 
 
@@ -89,7 +89,7 @@ class MainScreen(Screen):
 
     def press(self):
 
-        PauseScreen.pause(pause_scene_name='pauseScene', transition_back_scene=FARMYARD_SCREEN_NAME, text="Weeeeeee!", pause_duration=2)
+        PauseScreen.pause(pause_scene_name='pauseScene', transition_back_scene=FARMYARD_SCREEN_NAME, text="Weeeeeee!", pause_duration=1)
 
 
 
